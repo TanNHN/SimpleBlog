@@ -1,2 +1,6 @@
 Feb 18, 2020 8:06:38 PM blog.controllers.ActiveUserController processRequest
 INFO: Error at Active user controller: Uncompilable source code - Erroneous tree type: <any>
+Apr 12, 2020 2:44:44 PM blog.controllers.CreatePostController processRequest
+INFO: ERROR AT CREATE POST CONTROLLER The INSERT statement conflicted with the FOREIGN KEY constraint "FK_Article_Account". The conflict occurred in database "SimpleBlog", table "dbo.Account", column 'Email'.
+Apr 12, 2020 2:45:50 PM blog.controllers.CreateCommentController processRequest
+INFO: ERROR AT CREATE COMMENT CONTROLLER: The INSERT statement conflicted with the FOREIGN KEY constraint "FK_Comment_Account". The conflict occurred in database "SimpleBlog", table "dbo.Account", column 'Email'.

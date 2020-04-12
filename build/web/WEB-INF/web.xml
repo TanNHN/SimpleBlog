@@ -72,6 +72,10 @@
         <servlet-name>SendVerifyCodeController</servlet-name>
         <servlet-class>blog.controllers.SendVerifyCodeController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GoogleLoginController</servlet-name>
+        <servlet-class>blog.controllers.GoogleLoginController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ShowPostCommentController</servlet-name>
         <url-pattern>/ShowPostCommentController</url-pattern>
@@ -143,6 +147,10 @@
     <servlet-mapping>
         <servlet-name>SendVerifyCodeController</servlet-name>
         <url-pattern>/SendVerifyCodeController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GoogleLoginController</servlet-name>
+        <url-pattern>/GoogleLoginController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

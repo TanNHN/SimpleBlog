@@ -14,6 +14,9 @@
         <link rel="stylesheet" href="css/1.css" type="text/css" media="screen,projection" />
     </head>
     <body style="background-color: gray">
+        <script> function signOut() {
+                document.location.replace("https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost:8080/SimpleBlog/LogoutController");
+            }</script>
         <div id="container">
             <div id="header">
                 <h1><a href="MainController?action=ShowAllPost&txtSkip=0">Simple<strong>BLOG</strong></a></h1>
@@ -32,7 +35,7 @@
                         <c:if test="${sessionScope.USER.role eq 2}">
                             <li><a href="write_post.jsp">Post</a></li> 
                             <p> ${sessionScope.USER.name}</p>
-                            <li><a href="MainController?action=Logout">Logout</a></li>
+                            <li><a href="#" onclick="signOut()">Logout</a></li>
 
 
                         </c:if>
@@ -41,7 +44,6 @@
                         <li><a href="login.jsp">Login</a></li> 
                         <li><a href="register.jsp">Register</a></li> 
                         </c:if>
-
                 </ul>
             </div>
 

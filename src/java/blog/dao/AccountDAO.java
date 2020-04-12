@@ -77,7 +77,44 @@ public class AccountDAO {
         return account;
     }
 
-     public boolean registAccount(String email, String name, String password) throws Exception {
+    public List<String> getAllEmail() throws Exception{
+        List<String> list = new ArrayList<>();
+        try {
+            cnn = blog.db.DBUtil.getConnection();
+            if (cnn != null) {
+                String sql = "SELECT [Email] FROM [dbo].[Account]";
+                ps = cnn.prepareStatement(sql);
+                rs = ps.executeQuery();
+                while (rs.next()) {                    
+                    list.add(rs.getString("Email"));
+                }
+            }
+        } finally {
+            closeConnection();
+        }
+        return list;
+    }
+
+    public boolean CreateAccountForGoogleUser(String email, String name) throws Exception {
+        boolean chk = false;
+        try {
+            cnn = blog.db.DBUtil.getConnection();
+            if (cnn != null) {
+                String sql = "INSERT INTO [dbo].[Account]([Email],[Name],[Role],[Status]) VALUES (?,?,?,?)";
+                ps = cnn.prepareStatement(sql);
+                ps.setString(1, email);
+                ps.setString(2, name);
+                ps.setInt(3, 2);
+                ps.setInt(4, 1);
+                chk = ps.executeUpdate() > 0;
+            }
+        } finally {
+            closeConnection();
+        }
+        return chk;
+    }
+
+    public boolean registAccount(String email, String name, String password) throws Exception {
         boolean chk = false;
         try {
             cnn = blog.db.DBUtil.getConnection();
@@ -96,7 +133,7 @@ public class AccountDAO {
         }
         return chk;
     }
-    
+
     public boolean registAvailableAccount(String email, String name, String password) throws Exception {
         boolean chk = false;
         try {
