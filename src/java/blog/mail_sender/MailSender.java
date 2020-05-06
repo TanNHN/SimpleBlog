@@ -26,7 +26,7 @@ public class MailSender implements Serializable {
 
     public static String sendVerifyCode(String email) throws Exception {
         final String username = "nhattan91099@gmail.com";
-        final String password = "tandota123";
+        final String password = "*********";
         Properties prop = System.getProperties();
 
         prop.put(
